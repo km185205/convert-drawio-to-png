@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const testFolder = github.action_path;
+const testFolder = '.';
 const fs = require('fs');
 
 

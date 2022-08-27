@@ -9666,7 +9666,7 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(6024);
 const github = __nccwpck_require__(5016);
-const testFolder = github.action_path;
+const testFolder = '.';
 const fs = __nccwpck_require__(7147);
 
 
