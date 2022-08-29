@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const testFolder = '..';
 const fs = require('fs');
-
+const { exec } = require("child_process");
 
 try {
   fs.readdir(testFolder, (err, files) => {
@@ -11,6 +11,17 @@ try {
     });
   });
   
+  exec("ls -la", (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+    console.log(`stdout: ${stdout}`);
+});
 
   // `who-to-greet` input defined in action metadata file
   const nameToGreet = core.getInput('who-to-greet');
