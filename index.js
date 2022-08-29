@@ -5,11 +5,22 @@ const fs = require('fs');
 const { exec } = require("child_process");
 
 try {
+  exec("mkdir drawiofiles", (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+    console.log(`stdout: ${stdout}`);
+
   fs.readdir(testFolder, (err, files) => {
     files.forEach(file => {
       console.log(file);
 
-      exec("drawio file -o test1.png", (error, stdout, stderr) => {
+      exec("cp file drawiofiles", (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
             return;
